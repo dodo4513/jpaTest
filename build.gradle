@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.1.8.RELEASE'
+    id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+}
+
+apply plugin: 'idea'
+apply plugin: 'io.spring.dependency-management'
+
+
+group 'dodo'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.projectlombok:lombok")
+    compile("com.h2database:h2")
+    compile group: 'com.querydsl', name: 'querydsl-jpa', version: '4.2.1'
+    compile 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
